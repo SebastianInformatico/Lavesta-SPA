@@ -2,20 +2,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lavesta Spa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet" />
   <style>
-    body {
+    * {
+      box-sizing: border-box;
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
       background: linear-gradient(to bottom, #cce6ff, #ffffff);
       color: #1d3557;
+      line-height: 1.6;
     }
 
     header {
       background: linear-gradient(to right, #1d3557, #457b9d);
       color: white;
-      padding: 60px 20px 40px;
+      padding: 60px 20px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -23,89 +32,58 @@
     }
 
     header img {
-      max-width: 160px;
-      width: 160px; /* Fijar el tamaño */
-      height: 160px; /* Fijar el tamaño */
+      width: 140px;
+      height: 140px;
       object-fit: cover;
-      border-radius: 50%; /* Hacer el logo circular */
+      border-radius: 50%;
       margin-bottom: 20px;
-    }
-
-    .hero-text {
-      max-width: 700px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     }
 
     .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 2.8rem;
     }
 
     .hero-text p {
-      font-size: 1.3rem;
-      line-height: 1.6;
+      max-width: 700px;
+      font-size: 1.2rem;
+      margin-top: 10px;
       color: #f1faee;
-      margin-top: 0;
     }
 
     .servicios {
       text-align: center;
-      margin: 3em 20px 1em;
+      padding: 50px 20px;
     }
 
     .servicios h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       margin-bottom: 20px;
     }
 
     .servicios ul {
       list-style: none;
-      padding: 0;
       font-size: 1.2rem;
     }
 
-    .servicios ul li::before {
-      content: "✔️";
-      margin-right: 10px;
-      color: #1d3557;
+    .servicios li::before {
+      content: "✔️ ";
     }
 
-    #carrusel {
-      position: relative;
+    .swiper {
       width: 100%;
-      max-width: 800px;
-      margin: 0 auto 2em;
-      overflow: hidden;
+      max-width: 900px;
+      margin: 40px auto;
       border-radius: 15px;
-      background-color: #ffffff;
+      overflow: hidden;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
 
-    .carrusel-container {
-      display: flex;
-      transition: transform 0.5s ease;
-    }
-
-    .carrusel-item img {
-      width: 800px;
+    .swiper-slide img {
+      width: 100%;
       height: 400px;
       object-fit: cover;
     }
-
-    .flecha {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      font-size: 2.5rem;
-      padding: 0.5em;
-      cursor: pointer;
-      border: none;
-      z-index: 10;
-    }
-
-    .izquierda { left: 10px; }
-    .derecha { right: 10px; }
 
     .contacto {
       display: flex;
@@ -124,17 +102,11 @@
       padding: 12px 20px;
       border-radius: 30px;
       font-weight: bold;
-      transition: background-color 0.3s ease;
-      width: 200px;
-      justify-content: center;
+      transition: 0.3s;
     }
 
     .contacto a.instagram {
       background-color: #e1306c;
-    }
-
-    .contacto a:hover {
-      filter: brightness(0.9);
     }
 
     .contacto img {
@@ -143,30 +115,86 @@
       margin-right: 10px;
     }
 
+    .contacto a:hover {
+      transform: scale(1.05);
+      filter: brightness(0.9);
+    }
+
     footer {
       background-color: #1d3557;
       color: white;
       padding: 30px 20px;
       text-align: center;
-      font-size: 0.95rem;
     }
 
     footer p {
-      margin: 8px 0;
+      margin: 6px 0;
     }
 
-    footer .footer-info {
-      display: flex;
+    .chatbot {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
       flex-direction: column;
-      align-items: center;
-      gap: 5px;
+      font-size: 0.9rem;
+      z-index: 1000;
+    }
+
+    .chatbot-header {
+      background-color: #1d3557;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .chatbot-messages {
+      padding: 10px;
+      height: 200px;
+      overflow-y: auto;
+    }
+
+    .chatbot-input {
+      display: flex;
+      border-top: 1px solid #ddd;
+    }
+
+    .chatbot-input input {
+      flex: 1;
+      border: none;
+      padding: 10px;
+    }
+
+    .chatbot-input button {
+      background: #457b9d;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      cursor: pointer;
+    }
+
+    .chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #1d3557;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      z-index: 1001;
+      cursor: pointer;
     }
 
     @media (max-width: 768px) {
-      header {
-        padding: 40px 20px;
-      }
-
       .hero-text h1 {
         font-size: 2rem;
       }
@@ -175,39 +203,22 @@
         font-size: 1rem;
       }
 
-      #carrusel {
-        max-width: 100%;
-        height: auto;
-      }
-
-      .contacto {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .contacto a {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 10px;
+      .swiper-slide img {
+        height: 250px;
       }
     }
-
   </style>
 </head>
 <body>
-
-  <header>
+  <header data-aos="fade-down">
     <img src="Captura lavesta spa.PNG" alt="Logo Lavesta Spa" />
     <div class="hero-text">
       <h1>Lavesta Spa</h1>
-      <p>
-        Empresa especializada en estacionamiento, custodia y lavado de vehículos.<br>
-        A minutos del Aeropuerto de Mocopulli, brindamos confianza, seguridad y comodidad para ti y tu automóvil.
-      </p>
+      <p>Empresa especializada en estacionamiento, custodia y lavado de vehículos.<br>A minutos del Aeropuerto de Mocopulli, brindamos confianza, seguridad y comodidad para ti y tu automóvil.</p>
     </div>
   </header>
 
-  <section class="servicios">
+  <section class="servicios" data-aos="fade-up">
     <h2>Servicios</h2>
     <ul>
       <li>Lavado de vehículos</li>
@@ -216,45 +227,80 @@
     </ul>
   </section>
 
-  <section id="carrusel">
-    <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
-    <div class="carrusel-container" id="contenedorCarrusel">
-      <div class="carrusel-item"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento de Lavesta" /></div>
-      <div class="carrusel-item"><img src="Imagen 2 carrusel.jpg" alt="Estacionamiento seguro" /></div>
+  <div class="swiper" data-aos="zoom-in">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento de Lavesta" /></div>
+      <div class="swiper-slide"><img src="Imagen 2 carrusel.jpg" alt="Estacionamiento seguro" /></div>
     </div>
-    <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
-  </section>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-pagination"></div>
+  </div>
 
-  <div class="contacto">
+  <div class="contacto" data-aos="fade-up">
     <a href="https://wa.me/56954008455" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-      WhatsApp
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /> WhatsApp
     </a>
     <a href="https://www.instagram.com/lavesta.spa.2023/?hl=en-gb" class="instagram" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-      Instagram
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /> Instagram
     </a>
   </div>
 
   <footer>
-    <div class="footer-info">
-      <p><strong>Email:</strong> lavestaspa@gmail.com</p>
-    </div>
-      <p><strong>Dirección:</strong> Pindapulli km 1163, Dalcahue, Chile 5730000</p>
-    </div>
+    <p><strong>Email:</strong> lavestaspa@gmail.com</p>
+    <p><strong>Dirección:</strong> Pindapulli km 1163, Dalcahue, Chile 5730000</p>
     <p><strong>© 2025 Lavesta Spa. Todos los derechos reservados.</strong></p>
   </footer>
 
-  <script>
-    let posicion = 0;
-    const carrusel = document.getElementById("contenedorCarrusel");
-    const total = carrusel.children.length;
+  <div class="chatbot" id="chatbot">
+    <div class="chatbot-header">¿En qué puedo ayudarte?</div>
+    <div class="chatbot-messages" id="chatbotMessages"></div>
+    <div class="chatbot-input">
+      <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
+      <button onclick="enviarMensaje()">Enviar</button>
+    </div>
+  </div>
+  <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
 
-    function moverCarrusel(direccion) {
-      posicion = (posicion + direccion + total) % total;
-      carrusel.style.transform = `translateX(-${posicion * 800}px)`; // Se corrigió el template literal
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script>
+    AOS.init();
+
+    const swiper = new Swiper('.swiper', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    function toggleChatbot() {
+      const chatbot = document.getElementById('chatbot');
+      chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    function enviarMensaje() {
+      const input = document.getElementById('chatInput');
+      const mensajes = document.getElementById('chatbotMessages');
+      const texto = input.value.trim();
+      if (texto) {
+        mensajes.innerHTML += `<div><strong>Tú:</strong> ${texto}</div>`;
+        input.value = '';
+        setTimeout(() => {
+          mensajes.innerHTML += `<div><strong>Bot:</strong> Gracias por tu mensaje. Te responderemos pronto 😊</div>`;
+          mensajes.scrollTop = mensajes.scrollHeight;
+        }, 1000);
+      }
     }
   </script>
-
 </body>
 </html>
