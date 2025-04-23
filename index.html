@@ -4,27 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lavesta Spa</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet" />
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
     body {
-      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom, #cce6ff, #ffffff);
       color: #1d3557;
-      line-height: 1.6;
     }
 
     header {
       background: linear-gradient(to right, #1d3557, #457b9d);
       color: white;
-      padding: 60px 20px;
+      padding: 60px 20px 40px;
       text-align: center;
       display: flex;
       flex-direction: column;
@@ -32,58 +23,92 @@
     }
 
     header img {
-      width: 140px;
-      height: 140px;
+      max-width: 160px;
+      width: 160px;
+      height: 160px;
       object-fit: cover;
       border-radius: 50%;
       margin-bottom: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-text {
+      max-width: 700px;
     }
 
     .hero-text h1 {
-      font-size: 2.8rem;
+      font-size: 3rem;
+      margin-bottom: 10px;
     }
 
     .hero-text p {
-      max-width: 700px;
-      font-size: 1.2rem;
-      margin-top: 10px;
+      font-size: 1.3rem;
+      line-height: 1.6;
       color: #f1faee;
+      margin-top: 0;
     }
 
     .servicios {
       text-align: center;
-      padding: 50px 20px;
+      margin: 3em 20px 1em;
     }
 
     .servicios h2 {
-      font-size: 2.2rem;
+      font-size: 2rem;
       margin-bottom: 20px;
     }
 
     .servicios ul {
       list-style: none;
+      padding: 0;
       font-size: 1.2rem;
     }
 
-    .servicios li::before {
-      content: "✔️ ";
+    .servicios ul li::before {
+      content: "✔️";
+      margin-right: 10px;
+      color: #1d3557;
     }
 
-    .swiper {
+    #carrusel {
+      position: relative;
       width: 100%;
-      max-width: 900px;
-      margin: 40px auto;
-      border-radius: 15px;
+      max-width: 800px;
+      margin: 0 auto 2em;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
-    .swiper-slide img {
-      width: 100%;
+    .carrusel-container {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .carrusel-item img {
+      width: 800px;
       height: 400px;
       object-fit: cover;
     }
+
+    .flecha {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 2.5rem;
+      padding: 0.5em;
+      cursor: pointer;
+      border: none;
+      z-index: 10;
+    }
+
+    .izquierda { left: 10px; }
+    .derecha { right: 10px; }
 
     .contacto {
       display: flex;
@@ -102,11 +127,17 @@
       padding: 12px 20px;
       border-radius: 30px;
       font-weight: bold;
-      transition: 0.3s;
+      transition: background-color 0.3s ease;
+      width: 200px;
+      justify-content: center;
     }
 
     .contacto a.instagram {
       background-color: #e1306c;
+    }
+
+    .contacto a:hover {
+      filter: brightness(0.9);
     }
 
     .contacto img {
@@ -115,86 +146,82 @@
       margin-right: 10px;
     }
 
-    .contacto a:hover {
-      transform: scale(1.05);
-      filter: brightness(0.9);
-    }
-
     footer {
       background-color: #1d3557;
       color: white;
       padding: 30px 20px;
       text-align: center;
+      font-size: 0.95rem;
     }
 
     footer p {
-      margin: 6px 0;
+      margin: 8px 0;
     }
 
-    .chatbot {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 300px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.2);
-      overflow: hidden;
-      display: none;
-      flex-direction: column;
-      font-size: 0.9rem;
-      z-index: 1000;
-    }
-
-    .chatbot-header {
-      background-color: #1d3557;
-      color: white;
-      padding: 10px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .chatbot-messages {
-      padding: 10px;
-      height: 200px;
-      overflow-y: auto;
-    }
-
-    .chatbot-input {
+    footer .footer-info {
       display: flex;
-      border-top: 1px solid #ddd;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
 
-    .chatbot-input input {
-      flex: 1;
-      border: none;
-      padding: 10px;
-    }
-
-    .chatbot-input button {
-      background: #457b9d;
-      color: white;
-      border: none;
-      padding: 10px 15px;
-      cursor: pointer;
-    }
-
-    .chatbot-toggle {
+    .chatbot-boton {
       position: fixed;
-      bottom: 20px;
+      bottom: 100px;
       right: 20px;
       background-color: #1d3557;
       color: white;
       border: none;
       border-radius: 50%;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       font-size: 1.5rem;
-      z-index: 1001;
       cursor: pointer;
+      z-index: 999;
+    }
+
+    .chatbot-box {
+      position: fixed;
+      bottom: 160px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 998;
+    }
+
+    .chatbot-box header {
+      background-color: #1d3557;
+      color: white;
+      padding: 10px;
+      font-weight: bold;
+    }
+
+    .chatbot-box .messages {
+      flex-grow: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 0.9rem;
+    }
+
+    .chatbot-box input {
+      border: none;
+      border-top: 1px solid #ddd;
+      padding: 10px;
+      font-size: 1rem;
+      width: 100%;
     }
 
     @media (max-width: 768px) {
+      header {
+        padding: 40px 20px;
+      }
+
       .hero-text h1 {
         font-size: 2rem;
       }
@@ -203,22 +230,38 @@
         font-size: 1rem;
       }
 
-      .swiper-slide img {
-        height: 250px;
+      #carrusel {
+        max-width: 100%;
+        height: auto;
+      }
+
+      .contacto {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .contacto a {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
       }
     }
   </style>
 </head>
 <body>
-  <header data-aos="fade-down">
+
+  <header>
     <img src="Captura lavesta spa.PNG" alt="Logo Lavesta Spa" />
     <div class="hero-text">
       <h1>Lavesta Spa</h1>
-      <p>Empresa especializada en estacionamiento, custodia y lavado de vehículos.<br>A minutos del Aeropuerto de Mocopulli, brindamos confianza, seguridad y comodidad para ti y tu automóvil.</p>
+      <p>
+        Empresa especializada en estacionamiento, custodia y lavado de vehículos.<br>
+        A minutos del Aeropuerto de Mocopulli, brindamos confianza, seguridad y comodidad para ti y tu automóvil.
+      </p>
     </div>
   </header>
 
-  <section class="servicios" data-aos="fade-up">
+  <section class="servicios">
     <h2>Servicios</h2>
     <ul>
       <li>Lavado de vehículos</li>
@@ -227,80 +270,71 @@
     </ul>
   </section>
 
-  <div class="swiper" data-aos="zoom-in">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento de Lavesta" /></div>
-      <div class="swiper-slide"><img src="Imagen 2 carrusel.jpg" alt="Estacionamiento seguro" /></div>
+  <section id="carrusel">
+    <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
+    <div class="carrusel-container" id="contenedorCarrusel">
+      <div class="carrusel-item"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento de Lavesta" /></div>
+      <div class="carrusel-item"><img src="Imagen 2 carrusel.jpg" alt="Estacionamiento seguro" /></div>
     </div>
-    <div class="swiper-button-next"></div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-pagination"></div>
-  </div>
+    <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
+  </section>
 
-  <div class="contacto" data-aos="fade-up">
+  <div class="contacto">
     <a href="https://wa.me/56954008455" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" /> WhatsApp
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+      WhatsApp
     </a>
     <a href="https://www.instagram.com/lavesta.spa.2023/?hl=en-gb" class="instagram" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" /> Instagram
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+      Instagram
     </a>
   </div>
 
   <footer>
-    <p><strong>Email:</strong> lavestaspa@gmail.com</p>
+    <div class="footer-info">
+      <p><strong>Email:</strong> lavestaspa@gmail.com</p>
+    </div>
     <p><strong>Dirección:</strong> Pindapulli km 1163, Dalcahue, Chile 5730000</p>
     <p><strong>© 2025 Lavesta Spa. Todos los derechos reservados.</strong></p>
   </footer>
 
-  <div class="chatbot" id="chatbot">
-    <div class="chatbot-header">¿En qué puedo ayudarte?</div>
-    <div class="chatbot-messages" id="chatbotMessages"></div>
-    <div class="chatbot-input">
-      <input type="text" id="chatInput" placeholder="Escribe tu mensaje...">
-      <button onclick="enviarMensaje()">Enviar</button>
-    </div>
+  <button class="chatbot-boton" onclick="toggleChatbot()">💬</button>
+  <div class="chatbot-box" id="chatbot">
+    <header>Chat Lavesta</header>
+    <div class="messages" id="chatMensajes"></div>
+    <input type="text" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter') enviarMensaje()" />
   </div>
-  <button class="chatbot-toggle" onclick="toggleChatbot()">💬</button>
 
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
   <script>
-    AOS.init();
+    let posicion = 0;
+    const carrusel = document.getElementById("contenedorCarrusel");
+    const total = carrusel.children.length;
 
-    const swiper = new Swiper('.swiper', {
-      loop: true,
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-    });
+    function moverCarrusel(direccion) {
+      posicion = (posicion + direccion + total) % total;
+      carrusel.style.transform = `translateX(-${posicion * 800}px)`;
+    }
 
     function toggleChatbot() {
-      const chatbot = document.getElementById('chatbot');
-      chatbot.style.display = chatbot.style.display === 'flex' ? 'none' : 'flex';
+      const chat = document.getElementById("chatbot");
+      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
     }
 
     function enviarMensaje() {
-      const input = document.getElementById('chatInput');
-      const mensajes = document.getElementById('chatbotMessages');
+      const input = document.querySelector(".chatbot-box input");
+      const mensajes = document.getElementById("chatMensajes");
       const texto = input.value.trim();
-      if (texto) {
-        mensajes.innerHTML += `<div><strong>Tú:</strong> ${texto}</div>`;
-        input.value = '';
-        setTimeout(() => {
-          mensajes.innerHTML += `<div><strong>Bot:</strong> Gracias por tu mensaje. Te responderemos pronto 😊</div>`;
-          mensajes.scrollTop = mensajes.scrollHeight;
-        }, 1000);
-      }
+      if (!texto) return;
+      const mensajeUsuario = document.createElement("div");
+      mensajeUsuario.textContent = "Tú: " + texto;
+      mensajes.appendChild(mensajeUsuario);
+      const respuesta = document.createElement("div");
+      respuesta.textContent = "Bot: Gracias por tu mensaje. Pronto te responderemos.";
+      mensajes.appendChild(respuesta);
+      input.value = "";
+      mensajes.scrollTop = mensajes.scrollHeight;
     }
   </script>
+
 </body>
 </html>
