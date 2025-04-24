@@ -217,6 +217,14 @@
       width: 100%;
     }
 
+    /* Estilo para mensaje del bot */
+    .mensaje-bot {
+      background-color: #e0e0e0;
+      border-radius: 10px;
+      padding: 5px 10px;
+      margin-bottom: 10px;
+    }
+
     @media (max-width: 768px) {
       header {
         padding: 40px 20px;
@@ -318,6 +326,18 @@
     function toggleChatbot() {
       const chat = document.getElementById("chatbot");
       chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+      if (chat.style.display === 'flex') {
+        mostrarMensajeBot("¡Hola! ¿En qué te puedo ayudar? Si tienes alguna pregunta sobre nuestros servicios, ¡escríbelo!");
+      }
+    }
+
+    function mostrarMensajeBot(mensaje) {
+      const mensajes = document.getElementById("chatMensajes");
+      const mensajeBot = document.createElement("div");
+      mensajeBot.classList.add("mensaje-bot");
+      mensajeBot.textContent = mensaje;
+      mensajes.appendChild(mensajeBot);
+      mensajes.scrollTop = mensajes.scrollHeight;
     }
 
     function enviarMensaje() {
@@ -328,9 +348,22 @@
       const mensajeUsuario = document.createElement("div");
       mensajeUsuario.textContent = "Tú: " + texto;
       mensajes.appendChild(mensajeUsuario);
-      const respuesta = document.createElement("div");
-      respuesta.textContent = "Bot: Gracias por tu mensaje. Pronto te responderemos.";
-      mensajes.appendChild(respuesta);
+
+      // Respuesta automática del bot
+      let respuesta = "";
+      if (texto.toLowerCase().includes("servicios")) {
+        respuesta = "Ofrecemos los siguientes servicios:\n1. Lavado de vehículos\n2. Traslado de vehículos\n3. Custodia de vehículos mensual";
+      } else if (texto.toLowerCase().includes("precio") || texto.toLowerCase().includes("costos")) {
+        respuesta = "Los precios varían dependiendo del servicio, por favor contáctanos para más detalles.";
+      } else {
+        respuesta = "Gracias por tu mensaje. Pronto te responderemos.";
+      }
+
+      const respuestaBot = document.createElement("div");
+      respuestaBot.classList.add("mensaje-bot");
+      respuestaBot.textContent = "Bot: " + respuesta;
+      mensajes.appendChild(respuestaBot);
+
       input.value = "";
       mensajes.scrollTop = mensajes.scrollHeight;
     }
