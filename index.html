@@ -3,7 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lavesta Spa</title>
+  
+  <!-- Título optimizado para SEO -->
+  <title>Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé</title>
+  
+  <!-- Descripción optimizada para SEO -->
+  <meta name="description" content="Lavesta Spa ofrece estacionamiento, traslado y lavado de vehículos en la isla de Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
+  
+  <!-- Meta robots para asegurarse que Google indexe la página -->
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Archivo de verificación de Google (reemplaza "YOUR_VERIFICATION_CODE" con el código real) -->
+  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
+  
+  <!-- Favicon -->
+  <link rel="icon" href="favicon.ico" />
+
+  <!-- Otras metas de SEO -->
+  <meta property="og:title" content="Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé" />
+  <meta property="og:description" content="Lavesta Spa ofrece estacionamiento, traslado y lavado de vehículos en la isla de Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
+  <meta property="og:image" content="image.jpg" />
+  <meta property="og:url" content="https://www.lavestaspachiloe.cl" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé" />
+  <meta name="twitter:description" content="Lavesta Spa ofrece estacionamiento, traslado y lavado de vehículos en la isla de Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
+
+  <!-- Conexión al archivo CSS -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Conexión al archivo JS -->
+  <script src="script.js"></script>
+
+  <!-- Enlace al archivo sitemap.xml -->
+  <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+
   <style>
     body {
       margin: 0;
@@ -282,92 +315,69 @@
     <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
     <div class="carrusel-container" id="contenedorCarrusel">
       <div class="carrusel-item"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento de Lavesta" /></div>
-      <div class="carrusel-item"><img src="Imagen 2 carrusel.jpg" alt="Estacionamiento seguro" /></div>
+      <div class="carrusel-item"><img src="Imagen 2 carrus.JPG" alt="Lavado de vehículos" /></div>
+      <div class="carrusel-item"><img src="Imagen 3 carrus.JPG" alt="Instalaciones de Lavesta Spa" /></div>
     </div>
     <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
   </section>
 
-  <div class="contacto">
-    <a href="https://wa.me/56954008455" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-      WhatsApp
+  <section class="contacto">
+    <a href="https://api.whatsapp.com/send?phone=+56912345678" target="_blank">
+      <img src="whatsapp-icon.png" alt="WhatsApp" /> Contactar por WhatsApp
     </a>
-    <a href="https://www.instagram.com/lavesta.spa.2023/?hl=en-gb" class="instagram" target="_blank">
-      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-      Instagram
+    <a href="https://www.instagram.com/lavestaspachiloe/" class="instagram" target="_blank">
+      <img src="instagram-icon.png" alt="Instagram" /> Síguenos en Instagram
     </a>
-  </div>
+  </section>
 
   <footer>
+    <p>Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé</p>
     <div class="footer-info">
-      <p><strong>Email:</strong> lavestaspa@gmail.com</p>
+      <p>&copy; 2025 Todos los derechos reservados</p>
+      <p>Desarrollado por [Tu Nombre]</p>
     </div>
-    <p><strong>Dirección:</strong> Pindapulli km 1163, Dalcahue, Chile 5730000</p>
-    <p><strong>© 2025 Lavesta Spa. Todos los derechos reservados.</strong></p>
   </footer>
 
   <button class="chatbot-boton" onclick="toggleChatbot()">💬</button>
+
   <div class="chatbot-box" id="chatbot">
-    <header>Chat Lavesta</header>
-    <div class="messages" id="chatMensajes"></div>
-    <input type="text" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter') enviarMensaje()" />
+    <header>Chat con nosotros</header>
+    <div class="messages" id="chatbotMessages"></div>
+    <input type="text" id="userMessage" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode == 13){sendMessage();}" />
   </div>
 
   <script>
-    let posicion = 0;
-    const carrusel = document.getElementById("contenedorCarrusel");
-    const total = carrusel.children.length;
+    let currentSlide = 0;
+    const carrusel = document.getElementById('contenedorCarrusel');
 
     function moverCarrusel(direccion) {
-      posicion = (posicion + direccion + total) % total;
-      carrusel.style.transform = `translateX(-${posicion * 800}px)`;
+      const items = carrusel.children;
+      const totalItems = items.length;
+      currentSlide += direccion;
+
+      if (currentSlide < 0) currentSlide = totalItems - 1;
+      if (currentSlide >= totalItems) currentSlide = 0;
+
+      carrusel.style.transform = `translateX(-${currentSlide * 100}%)`;
     }
 
+    // Función para mostrar y ocultar el chatbot
     function toggleChatbot() {
-      const chat = document.getElementById("chatbot");
-      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
-      if (chat.style.display === 'flex') {
-        mostrarMensajeBot("¡Hola! ¿En qué te puedo ayudar? Si tienes alguna pregunta sobre nuestros servicios, ¡escríbelo!");
-      }
+      const chatbot = document.getElementById('chatbot');
+      chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
     }
 
-    function mostrarMensajeBot(mensaje) {
-      const mensajes = document.getElementById("chatMensajes");
-      const mensajeBot = document.createElement("div");
-      mensajeBot.classList.add("mensaje-bot");
-      mensajeBot.textContent = mensaje;
-      mensajes.appendChild(mensajeBot);
-      mensajes.scrollTop = mensajes.scrollHeight;
-    }
-
-    function enviarMensaje() {
-      const input = document.querySelector(".chatbot-box input");
-      const mensajes = document.getElementById("chatMensajes");
-      const texto = input.value.trim();
-      if (!texto) return;
-      const mensajeUsuario = document.createElement("div");
-      mensajeUsuario.textContent = "Tú: " + texto;
-      mensajes.appendChild(mensajeUsuario);
-
-      // Respuesta automática del bot
-      let respuesta = "";
-      if (texto.toLowerCase().includes("servicios")) {
-        respuesta = "Ofrecemos los siguientes servicios:\n1. Lavado de vehículos\n2. Traslado de vehículos\n3. Custodia de vehículos mensual";
-      } else if (texto.toLowerCase().includes("precio") || texto.toLowerCase().includes("costos")) {
-        respuesta = "Los precios varían dependiendo del servicio, por favor contáctanos para más detalles.";
-      } else {
-        respuesta = "Gracias por tu mensaje. Pronto te responderemos.";
+    // Función para enviar mensaje
+    function sendMessage() {
+      const userMessage = document.getElementById('userMessage').value;
+      if (userMessage.trim() !== '') {
+        const messageDiv = document.createElement('div');
+        messageDiv.classList.add('mensaje-bot');
+        messageDiv.textContent = userMessage;
+        document.getElementById('chatbotMessages').appendChild(messageDiv);
+        document.getElementById('userMessage').value = '';
       }
-
-      const respuestaBot = document.createElement("div");
-      respuestaBot.classList.add("mensaje-bot");
-      respuestaBot.textContent = "Bot: " + respuesta;
-      mensajes.appendChild(respuestaBot);
-
-      input.value = "";
-      mensajes.scrollTop = mensajes.scrollHeight;
     }
   </script>
-
 </body>
 </html>
