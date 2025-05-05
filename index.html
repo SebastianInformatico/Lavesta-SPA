@@ -3,205 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="google-site-verification" content="NcjRypb97w9kiKPPG5MlxhHw0_ZWcnel7yYBflY47C0" />
-  
-  <!-- Título optimizado para SEO -->
   <title>Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé</title>
-  
-  <!-- Descripción optimizada para SEO -->
   <meta name="description" content="Lavesta Spa ofrece estacionamiento, traslado y lavado de vehículos en la isla de Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
-  
-  <!-- Meta robots para asegurarse que Google indexe la página -->
   <meta name="robots" content="index, follow" />
-  
-  <!-- Archivo de verificación de Google (reemplaza "YOUR_VERIFICATION_CODE" con el código real) -->
-  <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE" />
-  
-  <!-- Favicon -->
-  <link rel="icon" href="favicon.ico" />
-
-  <!-- Otras metas de SEO -->
-  <meta property="og:title" content="Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé" />
-  <meta property="og:description" content="Lavesta Spa ofrece estacionamiento, traslado y lavado de vehículos en la isla de Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
-  <meta property="og:image" content="image.jpg" />
-  <meta property="og:url" content="https://www.lavestaspachiloe.cl" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé" />
-  <meta name="twitter:description" content="Lavesta Spa ofrece estacionamiento, traslado y lavado de vehículos en la isla de Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
-
-  <!-- Conexión al archivo CSS -->
-  <link rel="stylesheet" href="styles.css" />
-
-  <!-- Conexión al archivo JS -->
-  <script src="script.js"></script>
-
-  <!-- Enlace al archivo sitemap.xml -->
-  <link rel="sitemap" type="application/xml" href="sitemap.xml" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
 
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #cce6ff, #ffffff);
+      background-image: url('fondo-lavesta.jpg');
+      background-size: cover;
+      background-position: center;
       color: #1d3557;
     }
-
     header {
-      background: linear-gradient(to right, #1d3557, #457b9d);
+      background: linear-gradient(to right, rgba(29, 53, 87, 0.8), rgba(69, 123, 157, 0.8));
       color: white;
-      padding: 60px 20px 40px;
+      padding: 40px 20px 20px;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
     }
-
     header img {
-      max-width: 160px;
-      width: 160px;
-      height: 160px;
+      max-width: 140px;
+      height: 140px;
       object-fit: cover;
+      margin-bottom: 15px;
       border-radius: 50%;
-      margin-bottom: 20px;
+      border: 4px solid #f1faee;
     }
-
-    .hero-text {
-      max-width: 700px;
-    }
-
     .hero-text h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+      font-size: 2.5rem;
+      margin: 0;
     }
-
     .hero-text p {
-      font-size: 1.3rem;
-      line-height: 1.6;
+      font-size: 1.2rem;
+      line-height: 1.5;
       color: #f1faee;
-      margin-top: 0;
+      margin: 10px 0 0;
     }
-
     .servicios {
       text-align: center;
       margin: 3em 20px 1em;
     }
-
     .servicios h2 {
       font-size: 2rem;
       margin-bottom: 20px;
     }
-
     .servicios ul {
       list-style: none;
       padding: 0;
       font-size: 1.2rem;
     }
-
     .servicios ul li::before {
-      content: "✔️";
+      content: "\2714\FE0F";
       margin-right: 10px;
       color: #1d3557;
     }
-
     #carrusel {
       position: relative;
       width: 100%;
-      max-width: 800px;
+      max-width: 700px;
       margin: 0 auto 2em;
       overflow: hidden;
       border-radius: 20px;
       background: rgba(255, 255, 255, 0.15);
       backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
-
     .carrusel-container {
       display: flex;
       transition: transform 0.5s ease;
     }
-
+    .carrusel-item {
+      min-width: 100%;
+      height: 360px;
+      overflow: hidden;
+    }
     .carrusel-item img {
-      width: 800px;
-      height: 400px;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
-
     .flecha {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       background-color: rgba(0, 0, 0, 0.5);
       color: white;
-      font-size: 2.5rem;
+      font-size: 2rem;
       padding: 0.5em;
       cursor: pointer;
       border: none;
       z-index: 10;
     }
-
     .izquierda { left: 10px; }
     .derecha { right: 10px; }
 
-    .contacto {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 40px 0;
-      flex-wrap: wrap;
-    }
-
-    .contacto a {
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      background-color: #25d366;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-      width: 200px;
-      justify-content: center;
-    }
-
-    .contacto a.instagram {
-      background-color: #e1306c;
-    }
-
-    .contacto a:hover {
-      filter: brightness(0.9);
-    }
-
-    .contacto img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    footer {
-      background-color: #1d3557;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
-      font-size: 0.95rem;
-    }
-
-    footer p {
-      margin: 8px 0;
-    }
-
-    footer .footer-info {
+    .social-floating {
+      position: fixed;
+      left: 20px;
+      bottom: 90px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 5px;
+      gap: 12px;
+      z-index: 999;
+    }
+    .social-floating a img {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    .social-floating a img:hover {
+      transform: scale(1.1);
     }
 
     .chatbot-boton {
       position: fixed;
-      bottom: 100px;
+      bottom: 20px;
       right: 20px;
       background-color: #1d3557;
       color: white;
@@ -211,38 +130,36 @@
       height: 60px;
       font-size: 1.5rem;
       cursor: pointer;
-      z-index: 999;
+      z-index: 998;
     }
-
     .chatbot-box {
       position: fixed;
-      bottom: 160px;
+      bottom: 100px;
       right: 20px;
       width: 300px;
-      max-height: 400px;
+      max-height: 420px;
       background-color: white;
       border-radius: 15px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-      overflow: hidden;
       display: none;
       flex-direction: column;
-      z-index: 998;
+      z-index: 997;
     }
-
     .chatbot-box header {
       background-color: #1d3557;
       color: white;
       padding: 10px;
       font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
     }
-
     .chatbot-box .messages {
       flex-grow: 1;
       padding: 10px;
       overflow-y: auto;
       font-size: 0.9rem;
     }
-
     .chatbot-box input {
       border: none;
       border-top: 1px solid #ddd;
@@ -250,56 +167,45 @@
       font-size: 1rem;
       width: 100%;
     }
-
-    /* Estilo para mensaje del bot */
-    .mensaje-bot {
-      background-color: #e0e0e0;
-      border-radius: 10px;
-      padding: 5px 10px;
-      margin-bottom: 10px;
+    .burbuja-bienvenida {
+      position: fixed;
+      bottom: 95px;
+      right: 95px;
+      background-color: #1d3557;
+      color: white;
+      padding: 12px 16px;
+      border-radius: 25px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: aparecer 0.4s ease-in-out;
+      font-size: 0.95rem;
+      z-index: 999;
+      cursor: pointer;
     }
 
-    @media (max-width: 768px) {
-      header {
-        padding: 40px 20px;
-      }
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-      .hero-text h1 {
-        font-size: 2rem;
-      }
-
-      .hero-text p {
-        font-size: 1rem;
-      }
-
-      #carrusel {
-        max-width: 100%;
-        height: auto;
-      }
-
-      .contacto {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .contacto a {
-        width: 100%;
-        justify-content: center;
-        margin-bottom: 10px;
-      }
+    footer {
+      background-color: #1d3557;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 0.8rem;
+    }
+    footer a {
+      color: #f1faee;
+      text-decoration: none;
     }
   </style>
 </head>
-<body>
-
+<body onclick="closeChatbotIfClickedOutside(event)">
   <header>
     <img src="Captura lavesta spa.PNG" alt="Logo Lavesta Spa" />
     <div class="hero-text">
       <h1>Lavesta Spa</h1>
-      <p>
-        Empresa especializada en estacionamiento, custodia y lavado de vehículos.<br>
-        A minutos del Aeropuerto de Mocopulli, brindamos confianza, seguridad y comodidad para ti y tu automóvil.
-      </p>
+      <p>Estacionamiento, custodia y lavado de vehículos.<br>A minutos del Aeropuerto de Mocopulli.</p>
     </div>
   </header>
 
@@ -307,77 +213,108 @@
     <h2>Servicios</h2>
     <ul>
       <li>Lavado de vehículos</li>
-      <li>Traslado de vehículos dentro y fuera de la isla de Chiloé</li>
-      <li>Custodia de vehículos mensual</li>
+      <li>Traslado de vehículos dentro y fuera de Chiloé</li>
+      <li>Custodia mensual de vehículos</li>
     </ul>
   </section>
 
   <section id="carrusel">
     <button class="flecha izquierda" onclick="moverCarrusel(-1)">❮</button>
     <div class="carrusel-container" id="contenedorCarrusel">
-      <div class="carrusel-item"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento de Lavesta" /></div>
-      <div class="carrusel-item"><img src="Imagen 2 carrus.JPG" alt="Lavado de vehículos" /></div>
-      <div class="carrusel-item"><img src="Imagen 3 carrus.JPG" alt="Instalaciones de Lavesta Spa" /></div>
+      <div class="carrusel-item"><img src="Imagen 1 carrus.JPG" alt="Vista del estacionamiento" /></div>
+      <div class="carrusel-item"><img src="Imagen 2 carrusel.jpg" alt="Otra vista" /></div>
     </div>
     <button class="flecha derecha" onclick="moverCarrusel(1)">❯</button>
   </section>
 
-  <section class="contacto">
-    <a href="https://api.whatsapp.com/send?phone=+56912345678" target="_blank">
-      <img src="whatsapp-icon.png" alt="WhatsApp" /> Contactar por WhatsApp
-    </a>
-    <a href="https://www.instagram.com/lavestaspachiloe/" class="instagram" target="_blank">
-      <img src="instagram-icon.png" alt="Instagram" /> Síguenos en Instagram
-    </a>
-  </section>
-
-  <footer>
-    <p>Lavesta Spa - Estacionamiento, Traslado y Lavado de Vehículos en Chiloé</p>
-    <div class="footer-info">
-      <p>&copy; 2025 Todos los derechos reservados</p>
-      <p>Desarrollado por [Tu Nombre]</p>
-    </div>
-  </footer>
-
   <button class="chatbot-boton" onclick="toggleChatbot()">💬</button>
-
   <div class="chatbot-box" id="chatbot">
-    <header>Chat con nosotros</header>
+    <header>🤖 Chat con nosotros</header>
     <div class="messages" id="chatbotMessages"></div>
     <input type="text" id="userMessage" placeholder="Escribe tu mensaje..." onkeypress="if(event.keyCode == 13){sendMessage();}" />
   </div>
 
+  <div class="social-floating">
+    <a href="https://api.whatsapp.com/send?phone=56954008455" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    </a>
+    <a href="https://www.instagram.com/lavestaspachiloe/" target="_blank">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" />
+    </a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Lavesta Spa | Todos los derechos reservados | <a href="#">Política de privacidad</a></p>
+  </footer>
+
   <script>
-    let currentSlide = 0;
-    const carrusel = document.getElementById('contenedorCarrusel');
+    let chatbotVisible = false;
+    const chatbot = document.getElementById('chatbot');
+    const contenedorCarrusel = document.getElementById('contenedorCarrusel');
+    let carruselIndex = 0;
 
     function moverCarrusel(direccion) {
-      const items = carrusel.children;
-      const totalItems = items.length;
-      currentSlide += direccion;
-
-      if (currentSlide < 0) currentSlide = totalItems - 1;
-      if (currentSlide >= totalItems) currentSlide = 0;
-
-      carrusel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      const items = document.querySelectorAll('.carrusel-item');
+      carruselIndex = (carruselIndex + direccion + items.length) % items.length;
+      contenedorCarrusel.style.transform = `translateX(-${carruselIndex * 100}%)`;
     }
 
-    // Función para mostrar y ocultar el chatbot
     function toggleChatbot() {
-      const chatbot = document.getElementById('chatbot');
-      chatbot.style.display = chatbot.style.display === 'none' || chatbot.style.display === '' ? 'flex' : 'none';
+      chatbotVisible = !chatbotVisible;
+      chatbot.style.display = chatbotVisible ? 'flex' : 'none';
     }
 
-    // Función para enviar mensaje
-    function sendMessage() {
-      const userMessage = document.getElementById('userMessage').value;
-      if (userMessage.trim() !== '') {
-        const messageDiv = document.createElement('div');
-        messageDiv.classList.add('mensaje-bot');
-        messageDiv.textContent = userMessage;
-        document.getElementById('chatbotMessages').appendChild(messageDiv);
-        document.getElementById('userMessage').value = '';
+    function closeChatbotIfClickedOutside(event) {
+      if (!chatbot.contains(event.target) && event.target !== document.querySelector('.chatbot-boton')) {
+        chatbot.style.display = 'none';
+        chatbotVisible = false;
       }
+    }
+
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        mostrarBurbujaBienvenida();
+      }, 5000);
+    });
+
+    function mostrarBurbujaBienvenida() {
+      if (chatbot.style.display !== 'flex') {
+        const burbuja = document.createElement('div');
+        burbuja.className = 'burbuja-bienvenida';
+        burbuja.innerHTML = '😄 ¿Necesitas ayuda?';
+        document.body.appendChild(burbuja);
+        burbuja.addEventListener('click', () => {
+          toggleChatbot();
+          burbuja.remove();
+        });
+        setTimeout(() => { burbuja.remove(); }, 10000);
+      }
+    }
+
+    function sendMessage() {
+      const input = document.getElementById('userMessage');
+      const msg = input.value.trim();
+      if (!msg) return;
+      const cont = document.getElementById('chatbotMessages');
+      cont.innerHTML += `<div><strong>Tú:</strong> ${msg}</div>`;
+      input.value = '';
+
+      let respuesta = "Gracias por contactarnos. Pronto te responderemos.";
+      const hora = new Date().getHours();
+      if (msg.toLowerCase().includes('hola')) {
+        if (hora < 12) respuesta = "¡Buenos días! ¿En qué podemos ayudarte?";
+        else if (hora < 18) respuesta = "¡Buenas tardes! ¿Necesitas ayuda?";
+        else respuesta = "¡Buenas noches! ¿En qué podemos ayudarte?";
+      } else if (msg.toLowerCase().includes('servicio')) {
+        respuesta = "Ofrecemos lavado, traslado y custodia de vehículos. ¿Cuál necesitas?";
+      } else if (msg.toLowerCase().includes('gracias')) {
+        respuesta = "¡Con gusto! Estamos para ayudarte.";
+      }
+
+      setTimeout(() => {
+        cont.innerHTML += `<div><strong>Lavesta:</strong> ${respuesta}</div>`;
+        cont.scrollTop = cont.scrollHeight;
+      }, 800);
     }
   </script>
 </body>
