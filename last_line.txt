@@ -1,0 +1,1 @@
+            <span class="promo-chip seasonal" aria-label="Promoción de septiembre">Septiembre: 10% OFF</span>
