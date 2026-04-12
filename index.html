@@ -1,184 +1,286 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Lavesta Spa - Estacionamiento, Custodia y Lavado en Chiloe</title>
-<meta name="description" content="Lavesta Spa: estacionamiento, custodia y lavado de vehiculos a minutos del Aeropuerto de Mocopulli (Chiloe). Confianza, seguridad y comodidad para tu automovil." />
+  <title>Lavesta Spa – Estacionamiento, Custodia y Lavado en Chiloé</title>
+  <meta name="description" content="Lavesta Spa: estacionamiento, custodia y lavado de vehículos a minutos del Aeropuerto de Mocopulli, Chiloé. Confianza, seguridad y comodidad para tu automóvil." />
   <meta name="robots" content="index,follow" />
-  <meta property="og:title" content="Lavesta Spa" />
-<meta property="og:description" content="Estacionamiento, custodia y lavado de vehiculos en Chiloe." />
+  <meta property="og:title" content="Lavesta Spa – Estacionamiento y Lavado en Chiloé" />
+  <meta property="og:description" content="Estacionamiento, custodia y lavado de vehículos en Chiloé. A minutos del Aeropuerto de Mocopulli." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_CL" />
   <link rel="icon" href="icono-asistente.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet" />
   <link href="css/styles.css" rel="stylesheet" />
 </head>
 <body>
-  <header class="site-header">
+
+  <!-- Header -->
+  <header class="site-header" id="site-header">
     <div class="container header-inner">
-      <a class="brand" href="#" aria-label="Lavesta Spa - Inicio">
+      <a class="brand" href="#" aria-label="Lavesta Spa – Inicio">
         <img src="logo-lavesta.png" alt="Lavesta Spa" class="brand-logo" />
         <span class="brand-name">Lavesta Spa</span>
       </a>
-      <nav class="site-nav" aria-label="Principal">
+      <nav class="site-nav" aria-label="Navegación principal">
         <a href="#servicios">Servicios</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#contacto" class="btn btn-primary">Contacto</a>
+        <a href="#galeria">Galería</a>
+        <a href="#contacto">Contacto</a>
+        <a href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener" class="btn btn-primary">
+          <i class="fa-brands fa-whatsapp"></i> Cotizar
+        </a>
       </nav>
     </div>
   </header>
 
   <main id="inicio">
+
+    <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-inner">
         <div class="hero-copy">
-        
-          <h1 class="reveal">Estacionamiento, custodia y lavado a minutos del aeropuerto</h1>
-          <p>Ubicados cerca del Aeropuerto de Mocopulli (Chiloe), cuidamos tu vehiculo con seguridad, confianza y un servicio atento.</p>
-          <div class="hero-cta">
-            <a href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener" class="btn btn-primary">
+          <div class="hero-badge reveal">
+            <i class="fa-solid fa-location-dot"></i> Chiloé, Chile
+          </div>
+          <h1 class="reveal">Cuida tu vehículo con tranquilidad, a minutos del aeropuerto</h1>
+          <p class="reveal">Estacionamiento, custodia mensual y lavado profesional cerca del Aeropuerto de Mocopulli. Confianza, seguridad y atención personalizada.</p>
+          <div class="hero-cta reveal">
+            <a href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener" class="btn btn-primary" id="hero-cta-whatsapp">
               <i class="fa-brands fa-whatsapp"></i> Cotizar por WhatsApp
             </a>
-            <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+            <a href="#servicios" class="btn btn-outline" id="hero-cta-servicios">Ver servicios</a>
+          </div>
+          <div class="hero-stats reveal">
+            <div class="stat">
+              <strong>100%</strong>
+              <span>Confiable</span>
+            </div>
+            <div class="stat">
+              <strong>24/7</strong>
+              <span>Custodia</span>
+            </div>
+            <div class="stat">
+              <strong>+3</strong>
+              <span>Servicios</span>
+            </div>
           </div>
         </div>
         <div class="hero-media" aria-hidden="true">
-          <div class="floaters" aria-hidden="true">
-            <figure class="float-img small"><img src="hero-1.jpg" alt="Lavado de vehiculos" /></figure>
-            <figure class="float-img large"><img src="hero-2.jpg" alt="Custodia de vehiculos" /></figure>
-            <figure class="float-img"><img src="hero-1.jpg" alt="Estacionamiento seguro" /></figure>
+          <div class="hero-card-wrap">
+            <figure class="hero-main-img">
+              <img src="hero-2.jpg" alt="Estacionamiento Lavesta" loading="lazy" />
+              <div class="hero-img-badge">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Custodia segura 24/7</span>
+              </div>
+            </figure>
+            <figure class="hero-thumb">
+              <img src="hero-1.jpg" alt="Lavado de vehículos Lavesta" loading="lazy" />
+            </figure>
           </div>
-          <div class="hero-badge">Chiloe</div>
         </div>
       </div>
     </section>
 
+    <!-- Services Section -->
     <section id="servicios" class="section">
       <div class="container">
-        <h2 class="section-title reveal">Servicios</h2>
-        <div class="cards services-floats">
-          <figure class="float-img small s1" aria-hidden="true"><img src="hero-2.jpg" alt="Area de servicios" /></figure>
-          <figure class="float-img s2" aria-hidden="true"><img src="hero-1.jpg" alt="Vehiculos en custodia" /></figure>
+        <h2 class="section-title reveal">Nuestros Servicios</h2>
+        <p class="section-subtitle reveal">Todo lo que tu vehículo necesita, en un solo lugar</p>
+        <div class="cards">
           <article class="card reveal">
             <div class="card-icon"><i class="fa-solid fa-broom"></i></div>
-            <h3>Lavado de vehiculos</h3>
-            <p>Lavado exterior e interior con productos de calidad para un acabado impecable.</p>
+            <h3>Lavado de Vehículos</h3>
+            <p>Lavado exterior e interior con productos de calidad para un acabado impecable y un brillo duradero.</p>
           </article>
-          <article class="card reveal">
+          <article class="card reveal" style="animation-delay:.1s">
             <div class="card-icon"><i class="fa-solid fa-car-side"></i></div>
             <h3>Traslados</h3>
-            <p>Traslado de vehiculos dentro y fuera de Chiloe, con conductores de confianza.</p>
+            <p>Traslado de vehículos dentro y fuera de Chiloé, con conductores de confianza y experiencia comprobada.</p>
           </article>
-          <article class="card reveal">
+          <article class="card reveal" style="animation-delay:.2s">
             <div class="card-icon"><i class="fa-solid fa-warehouse"></i></div>
-            <h3>Custodia mensual</h3>
-            <p>Estacionamiento seguro y monitoreado para proteger tu vehiculo el tiempo que necesites.</p>
+            <h3>Custodia Mensual</h3>
+            <p>Estacionamiento seguro y monitoreado para proteger tu vehículo el tiempo que lo necesites.</p>
           </article>
         </div>
       </div>
     </section>
 
+    <!-- Why Us Section -->
+    <section class="section section-why">
+      <div class="container">
+        <h2 class="section-title reveal">¿Por qué elegirnos?</h2>
+        <div class="why-grid">
+          <div class="why-item reveal">
+            <i class="fa-solid fa-shield-halved"></i>
+            <h4>Seguridad garantizada</h4>
+            <p>Tu vehículo siempre vigilado en nuestras instalaciones.</p>
+          </div>
+          <div class="why-item reveal" style="animation-delay:.1s">
+            <i class="fa-solid fa-map-location-dot"></i>
+            <h4>Ubicación estratégica</h4>
+            <p>A minutos del Aeropuerto de Mocopulli, fácil acceso.</p>
+          </div>
+          <div class="why-item reveal" style="animation-delay:.2s">
+            <i class="fa-solid fa-handshake"></i>
+            <h4>Atención personalizada</h4>
+            <p>Te acompañamos en cada etapa, con trato cercano y honesto.</p>
+          </div>
+          <div class="why-item reveal" style="animation-delay:.3s">
+            <i class="fa-solid fa-star"></i>
+            <h4>Calidad premium</h4>
+            <p>Productos y procesos de alta calidad para cada servicio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gallery Section -->
     <section id="galeria" class="section section-alt">
       <div class="container">
-        <div class="section-head">
-          <h2 class="section-title">Galeria</h2>
-          <div class="section-actions">
-            <button class="carousel-btn prev" aria-label="Imagen anterior" data-dir="-1">&lsaquo;</button>
-            <button class="carousel-btn next" aria-label="Imagen siguiente" data-dir="1">&rsaquo;</button>
-          </div>
-        </div>
+        <h2 class="section-title reveal">Galería</h2>
+        <p class="section-subtitle reveal">Conoce nuestras instalaciones y el trabajo que hacemos</p>
         <div class="carousel reveal" data-carousel>
           <div class="carousel-track" data-track>
-            <figure class="carousel-item"><img src="hero-1.jpg" alt="Vista del estacionamiento" /></figure>
-            <figure class="carousel-item"><img src="hero-2.jpg" alt="Area de servicios" /></figure>
+            <figure class="carousel-item">
+              <img src="hero-1.jpg" alt="Vista del estacionamiento Lavesta" loading="lazy" />
+            </figure>
+            <figure class="carousel-item">
+              <img src="hero-2.jpg" alt="Área de servicios Lavesta" loading="lazy" />
+            </figure>
           </div>
         </div>
-        
-        
+        <div class="section-actions">
+          <button class="carousel-btn prev" aria-label="Imagen anterior" data-dir="-1" id="btn-carousel-prev">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="carousel-btn next" aria-label="Imagen siguiente" data-dir="1" id="btn-carousel-next">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </section>
 
+    <!-- Contact Section -->
     <section id="contacto" class="section">
-      <div class="container contact">
-        <div class="contact-card">
-          <h2 class="section-title">Contacto</h2>
-          <ul class="contact-list">
-            <li><i class="fa-solid fa-phone"></i> <a href="tel:+56954008455">+56 9 5400 8455</a></li>
-            <li><i class="fa-solid fa-envelope"></i> <a href="mailto:lavestaspa@gmail.com">lavestaspa@gmail.com</a></li>
-            <li><i class="fa-solid fa-location-dot"></i> Pindapulli km 1163, Dalcahue, Chile 5730000 </li>
-          </ul>
-          <div class="contact-actions">
-            <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener">
+      <div class="container">
+        <h2 class="section-title reveal">Contáctanos</h2>
+        <p class="section-subtitle reveal">Estamos listos para ayudarte. Escríbenos y te respondemos a la brevedad.</p>
+        <div class="contact">
+          <div class="contact-card reveal">
+            <h3>Información de contacto</h3>
+            <ul class="contact-list">
+              <li>
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <span>Teléfono</span>
+                  <a href="tel:+56954008455">+56 9 5400 8455</a>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <span>Email</span>
+                  <a href="mailto:lavestaspa@gmail.com">lavestaspa@gmail.com</a>
+                </div>
+              </li>
+              <li>
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <span>Dirección</span>
+                  <address>Pindapulli km 1163, Dalcahue, Chiloé 5730000</address>
+                </div>
+              </li>
+            </ul>
+            <a class="btn btn-primary" href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener" id="contact-whatsapp">
               <i class="fa-brands fa-whatsapp"></i> Escribir por WhatsApp
             </a>
           </div>
-        </div>
-        <div class="contact-card">
-          <h2 class="section-title">Escribenos</h2>
-          <form id="fs-contact" class="contact-form" data-formspree="https://formspree.io/f/YOUR_FORM_ID" novalidate>
-            <div class="form-row half">
-              <label for="cf-name">Nombre</label>
-              <input type="text" id="cf-name" name="nombre" required />
-            </div>
-            <div class="form-row half">
-              <label for="cf-email">Email</label>
-              <input type="email" id="cf-email" name="email" required />
-            </div>
-            <div class="form-row row-2">
-              <label for="cf-msg">Mensaje</label>
-              <textarea id="cf-msg" name="mensaje" rows="4" required></textarea>
-            </div>
-            <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
-            <div class="form-actions row-2">
-              <button type="submit" class="btn btn-primary">Enviar</button>
-              <span class="form-status" aria-live="polite"></span>
-            </div>
-          </form>
-          <p class="form-note">Al enviar, se abrira tu correo para completar el envio.</p>
+          <div class="contact-card reveal" style="animation-delay:.1s">
+            <h3>Envíanos un mensaje</h3>
+            <form id="fs-contact" class="contact-form" data-formspree="https://formspree.io/f/YOUR_FORM_ID" novalidate>
+              <div class="form-row half">
+                <label for="cf-name">Nombre</label>
+                <input type="text" id="cf-name" name="nombre" required placeholder="Tu nombre" />
+              </div>
+              <div class="form-row half">
+                <label for="cf-email">Correo electrónico</label>
+                <input type="email" id="cf-email" name="email" required placeholder="tu@email.com" />
+              </div>
+              <div class="form-row row-2">
+                <label for="cf-msg">Mensaje</label>
+                <textarea id="cf-msg" name="mensaje" rows="5" required placeholder="¿En qué podemos ayudarte?"></textarea>
+              </div>
+              <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" />
+              <div class="form-actions row-2">
+                <button type="submit" class="btn btn-primary" id="contact-submit">
+                  <i class="fa-solid fa-paper-plane"></i> Enviar mensaje
+                </button>
+                <span class="form-status" aria-live="polite"></span>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </section>
-    
+
   </main>
 
+  <!-- Social Floating -->
   <div class="social-floating" aria-label="Redes sociales">
-    <a class="social social-wa" href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <a class="social social-wa" href="https://api.whatsapp.com/send?phone=56954008455" target="_blank" rel="noopener" aria-label="WhatsApp Lavesta Spa">
       <i class="fa-brands fa-whatsapp"></i>
     </a>
-    <a class="social social-ig" href="https://www.instagram.com/lavesta.spa.2023/" target="_blank" rel="noopener" aria-label="Instagram">
+    <a class="social social-ig" href="https://www.instagram.com/lavesta.spa.2023/" target="_blank" rel="noopener" aria-label="Instagram Lavesta Spa">
       <i class="fa-brands fa-instagram"></i>
     </a>
   </div>
 
-  <button class="chatbot-boton" aria-haspopup="dialog" aria-expanded="false" aria-controls="chatbot">
-    <img src="icono-asistente.png" alt="Asistente" />
+  <!-- Chatbot -->
+  <button class="chatbot-boton" aria-haspopup="dialog" aria-expanded="false" aria-controls="chatbot" id="chatbot-toggle">
+    <img src="icono-asistente.png" alt="Asistente virtual Lavesta" />
   </button>
-  <div class="chatbot-box" id="chatbot" role="dialog" aria-modal="true" aria-label="Chat con Lavesta">
+  <div class="chatbot-box" id="chatbot" role="dialog" aria-modal="true" aria-label="Chat con Lavesta Spa">
     <header class="chatbot-header">
-      <i class="fa-solid fa-message"></i>
-      <span>Chat con nosotros</span>
-      <button class="chatbot-cerrar" aria-label="Cerrar chat">&times;</button>
+      <div class="chatbot-header-info">
+        <img src="icono-asistente.png" alt="Asistente" />
+        <div>
+          <strong>Lavesta Spa</strong>
+          <small>En línea</small>
+        </div>
+      </div>
+      <button class="chatbot-cerrar" aria-label="Cerrar chat" id="chatbot-close">&times;</button>
     </header>
     <div class="messages" id="chatbotMessages" aria-live="polite"></div>
-    <div class="chatbot-input">
-      <input type="text" id="userMessage" placeholder="Escribe tu mensaje y presiona Enter" autocomplete="off" />
+    <div class="chatbot-input-wrap">
+      <div class="chatbot-input">
+        <input type="text" id="userMessage" placeholder="Escribe tu mensaje..." autocomplete="off" />
+        <button class="chatbot-send" id="chatbot-send" aria-label="Enviar mensaje">
+          <i class="fa-solid fa-paper-plane"></i>
+        </button>
+      </div>
     </div>
   </div>
 
+  <!-- Footer -->
   <footer class="site-footer">
     <div class="container">
-      <p> Lavesta Spa 2025 - Todos los derechos reservados - <a href="mailto:lavestaspa@gmail.com">lavestaspa@gmail.com</a></p>
+      <div class="footer-brand">
+        <img src="logo-lavesta.png" alt="Lavesta Spa" class="footer-logo" />
+        <span class="brand-name">Lavesta Spa</span>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 Lavesta Spa – Todos los derechos reservados.
+        <a href="mailto:lavestaspa@gmail.com">lavestaspa@gmail.com</a>
+      </p>
     </div>
   </footer>
 
   <script src="js/main.js" defer></script>
 </body>
 </html>
-
-
-
-
-
-
-
