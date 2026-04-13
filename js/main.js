@@ -2,6 +2,29 @@
 const $ = (sel, ctx = document) => ctx.querySelector(sel);
 const $$ = (sel, ctx = document) => Array.from(ctx.querySelectorAll(sel));
 
+// ─── Mobile nav toggle ──────────────────────────────────────────
+(function initMobileNav() {
+  const toggle = document.getElementById('nav-toggle');
+  const nav    = document.getElementById('mobile-nav');
+  if (!toggle || !nav) return;
+
+  const close = () => {
+    nav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  };
+
+  toggle.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  nav.querySelectorAll('.mobile-link, .btn').forEach(link => {
+    link.addEventListener('click', close);
+  });
+
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
 // ─── Header scroll shadow ───────────────────────────────────────
 (function initHeaderScroll() {
   const header = $('#site-header');
